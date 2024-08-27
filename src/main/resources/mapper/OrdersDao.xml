@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cl.dao.OrdersDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cl.entity.OrdersEntity" id="ordersMap">
+        <result property="orderid" column="orderid"/>
+        <result property="tablename" column="tablename"/>
+        <result property="goodid" column="goodid"/>
+        <result property="goodname" column="goodname"/>
+        <result property="picture" column="picture"/>
+        <result property="buynumber" column="buynumber"/>
+        <result property="price" column="price"/>
+        <result property="discountprice" column="discountprice"/>
+        <result property="total" column="total"/>
+        <result property="discounttotal" column="discounttotal"/>
+        <result property="type" column="type"/>
+        <result property="status" column="status"/>
+        <result property="address" column="address"/>
+        <result property="tel" column="tel"/>
+        <result property="consignee" column="consignee"/>
+        <result property="remark" column="remark"/>
+        <result property="logistics" column="logistics"/>
+        <result property="addtime" column="addtime"/>
+        <result property="userid" column="userid"/>
+        <result property="shangjiazhanghao" column="shangjiazhanghao"/>
+        <result property="goodtype" column="goodtype"/>
+    </resultMap>
+
+    <select id="selectListView"
+		resultType="com.cl.entity.view.OrdersView" >
+
+		SELECT  orders.* FROM orders  orders 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.cl.entity.view.OrdersView" >
+		SELECT * FROM orders  orders <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+</mapper>
